@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Birthday!</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #ffd1dc;
+            text-align: center;
+            padding: 50px;
+            overflow: hidden;
+        }
+        .birthday-message {
+            background-color: #ff69b4;
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 20px auto;
+            width: 50%;
+        }
+        .birthday-message h1 {
+            font-size: 2em;
+        }
+
+        /* CSS for Bubble Effect */
+        .bubble {
+          position: fixed;
+          bottom: 0;
+          background-color: rgba(255, 255, 255, 0.2);
+          border-radius: 50%;
+          z-index: 1000;
+        }
+
+        /* CSS for Birthday Cake */
+        .cake {
+          position: fixed;
+          bottom: 20px;
+          left: 50%;
+          transform: translateX(-50%);
+          width: 200px;
+          height: 200px;
+          background: url('https://www.google.com/imgres?imgurl=https%3A%2F%2Ft3.ftcdn.net%2Fjpg%2F05%2F83%2F80%2F44%2F360_F_583804412_WOZ7YHk7lhuW6DUR8pdfXgzE0eEPYenq.jpg&tbnid=a6Ge7qSLoX_xuM&vet=12ahUKEwjF1v784s-EAxXwK2IAHW2uAYkQMyghegUIARCmAQ..i&imgrefurl=https%3A%2F%2Fstock.adobe.com%2Fsearch%3Fk%3Dorange%2Bbirthday%2Bcake&docid=lNTM3bL1ptRNKM&w=540&h=360&q=birthday%20orange%20cake%20design&client=safari&ved=2ahUKEwjF1v784s-EAxXwK2IAHW2uAYkQMyghegUIARCmAQ') no-repeat center center;
+          background-size: contain;
+          z-index: 500;
+        }
+    </style>
+</head>
+<body>
+    <div class="birthday-message">
+        <h1>Chúc Mừng Sinh Nhật!</h1>
+        <p>Chúc bạn một ngày sinh nhật thật ý nghĩa và tràn đầy niềm vui!</p>
+    </div>
+    <div class="cake"></div>
+    <script>
+        // JavaScript for Bubble Effect
+        function createBubble() {
+          const bubble = document.createElement('div');
+          bubble.classList.add('bubble');
+          document.body.appendChild(bubble);
+
+          // Size of the bubble
+          const size = Math.random() * 60 + 40 + 'px';
+          bubble.style.width = size;
+          bubble.style.height = size;
+
+          // Position of the bubble
+          bubble.style.left = Math.random() * 100 + 'vw';
+
+          // Animation duration
+          bubble.style.animationDuration = Math.random() * 2 + 3 + 's';
+          bubble.style.animationName = 'rise';
+          bubble.style.animationTimingFunction = 'ease-out';
+
+          // Remove bubble after a certain time to not overload the page
+          setTimeout(() => {
+            bubble.remove();
+          }, 5000 + 1000); // Animation duration + 1s
+        }
+
+        // Create a bubble every 300 milliseconds
+        setInterval(createBubble, 300);
+    </script>
+    <style>
+        @keyframes rise {
+            0% {
+                bottom: -100px;
+                opacity: 1;
+            }
+            100% {
+                bottom: 100%;
+                opacity: 0;
+            }
+        }
+    </style>
+</body>
+</html>
